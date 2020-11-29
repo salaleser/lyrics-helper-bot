@@ -13,10 +13,11 @@ musixmatch = Musixmatch(musixmatch_token.split('\n')[0])
 @bot.message_handler(content_types=['text'])
 def start(message):
 	if message.text == '/start':
-		bot.send_message(message.from_user.id, 'Введите название трека')
+		bot.send_message(message.from_user.id,
+		'Введите имя исполнителя и наименование песни в формате {artist_name}-{song_title}')
 	else:
-		get_lyrics_from_musixmatch(message)
-		# get_lyrics_from_genius(message)
+		get_lyrics_from_genius(message)
+		# get_lyrics_from_musixmatch(message)
 
 def get_lyrics_from_musixmatch(message):
 	try:
