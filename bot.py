@@ -26,11 +26,11 @@ def get_lyrics_from_musixmatch(message):
 
 		song_json = musixmatch.matcher_lyrics_get(arg2, arg1)
 
-		status_code = song_json['message']['header']['status_code']
-		if (status_code != 200):
-			bot.send_message(message.from_user.id, 'Не найдено в Musixmatch!\nПытаюсь найти в Genius...')
-			get_lyrics_from_genius(message)
-			return
+		# status_code = song_json['message']['header']['status_code']
+		# if (status_code != 200):
+		# 	bot.send_message(message.from_user.id, 'Не найдено в Musixmatch!\nПытаюсь найти в Genius...')
+		# 	get_lyrics_from_genius(message)
+		# 	return
 		
 		lyrics = song_json['message']['body']['lyrics']['lyrics_body']
 		bot.send_message(message.from_user.id, 'Текст песни "'+arg1+' — '+arg2+'":\n'+lyrics)
